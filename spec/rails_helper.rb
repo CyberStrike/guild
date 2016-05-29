@@ -9,8 +9,6 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'pry-byebug'
 require 'awesome_print'
-require 'factory_girl'
-
 
 # include Warden::Test::Helpers
 
@@ -29,7 +27,7 @@ require 'factory_girl'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+# Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -64,14 +62,15 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # Factory Girl
+  config.include FactoryGirl::Syntax::Methods
+
   # Devise
   # config.include Devise::TestHelpers, :type => :controller
   # config.append_after(:each) do
   #   Warden.test_reset!
   # end
 
-  # Factory Girl
-  config.include FactoryGirl::Syntax::Methods
 
   # Database Cleaner
   config.before(:suite) do
@@ -111,7 +110,6 @@ RSpec.configure do |config|
   end
 
   config.append_after(:each) do
-    Warden.test_reset!
     DatabaseCleaner.clean
   end
 
