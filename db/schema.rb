@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 1a6f87e6727a6f9a0b454ad25fbcb25cbaa5ab3d
 ActiveRecord::Schema.define(version: 20160529030247) do
+=======
+ActiveRecord::Schema.define(version: 20160529010851) do
+>>>>>>> scaffolded jobs
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -20,9 +24,14 @@ ActiveRecord::Schema.define(version: 20160529030247) do
     t.text     "description"
     t.boolean  "remote"
     t.date     "exp_date"
+<<<<<<< 1a6f87e6727a6f9a0b454ad25fbcb25cbaa5ab3d
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "archived",    default: false
+=======
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+>>>>>>> scaffolded jobs
   end
 
 end
