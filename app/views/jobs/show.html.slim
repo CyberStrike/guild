@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @job.title
+p
+  strong Link:
+  = @job.link
+p
+  strong Location:
+  = @job.location
+p
+  strong Description:
+  = @job.description
+p
+  strong Remote:
+  = @job.remote
+p
+  strong Exp date:
+  = @job.exp_date
+
+= link_to 'Edit', edit_job_path(@job)
+'|
+= link_to 'Back', jobs_path
