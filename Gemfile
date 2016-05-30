@@ -5,6 +5,7 @@ gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 
 # Libraries
 ####################
+gem 'sidekiq'
 
 gem 'puma', '~> 3.0' # That's one fast cat
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Timey Wimey Stuff
