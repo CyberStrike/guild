@@ -20,6 +20,7 @@ class JobArchiverJob < ApplicationJob
 
     end
 
+
   end
 
 

@@ -14,10 +14,5 @@ RSpec.describe Job, :type => :model do
     end
   end
 
-  describe "#archive" do
-    let(:job){ Job.new }
-    it "should set the default archived boolean to false" do
-      expect( job.archived ).to eq false
-    end
-  end
+
 end

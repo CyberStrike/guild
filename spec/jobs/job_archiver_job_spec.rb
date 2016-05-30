@@ -9,8 +9,8 @@ RSpec.describe JobArchiverJob, :type => :job do
 
       JobArchiverJob.perform_now
 
+      job.reload
 
-      binding.pry
       expect(job.archived).to eq true
 
     end
