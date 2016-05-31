@@ -11,4 +11,8 @@ FactoryGirl.define do
   trait :with_link do
     link { FFaker::Internet.http_url }
   end
+
+  trait :expires_now do
+    exp_date { Date.current - 1.day }
+  end
 end
