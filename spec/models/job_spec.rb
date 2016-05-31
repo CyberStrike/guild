@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Job, :type => :model do
-  context "#instantiate" do
+  context "#new" do
     it "should generate new instance" do
-      newclass=described_class.new
-      expect(newclass).to be_a(described_class)
+      newclass=Job.new
+      expect(newclass).to be_a(Job)
     end
   end
   describe "#initialization" do
@@ -13,6 +13,4 @@ RSpec.describe Job, :type => :model do
       expect( job.archived ).to eq false
     end
   end
-
-
 end
