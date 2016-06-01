@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Jobs can be edited', type: :feature  do
 
-  context 'When editing a Job', :type => :feature do
+  context 'When editing a Job' do
     let!(:job){ create :job }
     let!(:job_mock){ build :job }
 

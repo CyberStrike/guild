@@ -1,16 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Job, :type => :model do
-  context "#new" do
-    it "should generate new instance" do
-      newclass=Job.new
-      expect(newclass).to be_a(Job)
+  context 'New' do
+    let!(:job){ Job.new }
+
+    it 'should generate new instance' do
+      expect(job).to be_a(Job)
     end
-  end
-  describe "#initialization" do
-    let(:job){ Job.new }
-    it "should set the default archived boolean to false" do
+
+    it 'archived boolean should be false' do
       expect( job.archived ).to eq false
     end
   end
+
+  context 'archive!' do
+    let!(:job){ create :job }
+
+    it 'archive!, archives a job' do
+      expect{ job.archive! }.to change{ job.archived? }.from(false).to(true)
+    end
+  end
+
+  context 'expired' do
+    before :each do
+      FactoryGirl.create_list(:job, 2)
+      FactoryGirl.create_list(:job, 3, :expired)
+    end
+
+    it 'returns only expired jobs' do
+      expect(Job.expired.count).to eq 3
+    end
+  end
+
 end

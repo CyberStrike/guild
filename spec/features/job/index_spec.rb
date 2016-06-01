@@ -8,19 +8,19 @@ RSpec.feature 'Jobs are listed', type: :feature  do
       visit '/jobs'
     end
 
-    it 'with a title' do
+    it 'a title' do
       expect(page).to have_content job.title
     end
 
-    it 'with a description' do
+    it 'a description' do
       expect(page).to have_content job.description
     end
 
-    it 'with a location' do
+    it 'a location' do
       expect(page).to have_content job.location
     end
 
-    it 'with a remote flag' do
+    it 'a remote flag' do
       expect(page).to have_content job.remote
     end
   end

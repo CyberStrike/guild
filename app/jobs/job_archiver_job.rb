@@ -6,10 +6,8 @@ class JobArchiverJob < ApplicationJob
   end
 
   def archive_jobs
-    @jobs = Job.all
-    @jobs.each do |j|
-      j.archived=true unless (DateTime.now < j.exp_date)
-      j.save
+    Job.expired.each do |job|
+      job.archive!
     end
   end
 
