@@ -6,9 +6,6 @@ class JobArchiverJob < ApplicationJob
   end
 
   def archive_jobs
-    Job.expired.each do |job|
-      job.archive!
-    end
+    Job.expired.each(&:archive!)
   end
-
 end

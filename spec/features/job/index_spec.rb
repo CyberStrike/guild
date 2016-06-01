@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature 'Jobs are listed', type: :feature  do
+RSpec.feature 'Jobs are listed', type: :feature do
   context 'With expected attributes' do
-    let!(:job){ create(:job) }
+    let!(:job) { create(:job) }
 
     before :each do
       visit '/jobs'
