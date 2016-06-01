@@ -25,9 +25,14 @@ RSpec.describe Job, :type => :model do
     before :each do
       FactoryGirl.create_list(:job, 2)
       FactoryGirl.create_list(:job, 3, :expired)
+      FactoryGirl.create_list(:job, 4, :expired, archived: true)
     end
 
     it 'returns only expired jobs' do
+      expect(Job.expired.count).to eq 3
+    end
+
+    it 'does not return archived jobs' do
       expect(Job.expired.count).to eq 3
     end
   end
