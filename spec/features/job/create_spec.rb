@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature 'Jobs', :type => :feature do
+RSpec.feature 'Jobs', type: :feature do
   context 'When creating a Job' do
-    let!(:job){ build(:job) }
+    let!(:job) { build :job }
 
     before :each do
       visit '/jobs'

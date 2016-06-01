@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature 'Jobs can be edited', type: :feature  do
-
-  context 'When editing a Job', :type => :feature do
-    let!(:job){ create :job }
-    let!(:job_mock){ build :job }
+RSpec.feature 'Jobs can be edited', type: :feature do
+  context 'When editing a Job' do
+    let!(:job) { create :job }
+    let!(:job_mock) { build :job }
 
     it 'title is saved successfully' do
       visit edit_job_path(job)
@@ -39,6 +38,5 @@ RSpec.feature 'Jobs can be edited', type: :feature  do
     end
 
     it 'expiration date is saved successfully'
-
   end
 end

@@ -31,6 +31,3 @@ it can be a hit or miss.
 3. If there are no corresponding issues create one.
 4. If you have a feature and need assistance such as writing your test,
   or hit a roadblock assign the appropriate label to the issue and mention me.
-
-
-
