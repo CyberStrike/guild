@@ -7,7 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <% unless flash.empty? %>
+    <div class="text-center">
+      <div class="notice text-info">
+        <%= notice %>
+      </div>
+      <div class="alert text-danger">
+        <%= alert %>
+      </div>
+    </div>
+  <% end %>
   <body>
     <%= yield %>
   </body>
