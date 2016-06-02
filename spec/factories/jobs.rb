@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "MyText"
     remote  { [true, false].sample }
     exp_date { Date.current + 30.days }
+    job_type {[:full, :part, :contract].sample}
   end
 
   trait :with_link do
