@@ -33,6 +33,7 @@ group :development, :test do
   gem 'pry-byebug', platform: :mri # Break in console
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'rubocop'
 end
 
 group :development do
