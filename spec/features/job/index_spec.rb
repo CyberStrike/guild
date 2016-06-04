@@ -23,5 +23,9 @@ RSpec.feature 'Jobs are listed', type: :feature do
     it 'a remote flag' do
       expect(page).to have_content job.remote
     end
+
+    it 'a job type' do
+      expect(page).to have_content job.job_type
+    end
   end
 end

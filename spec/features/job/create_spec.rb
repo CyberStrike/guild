@@ -12,9 +12,10 @@ RSpec.feature 'Jobs', type: :feature do
     def job_defaults
       fill_in 'job_title', with: job.title
       fill_in 'job_description', with: job.description
+      choose 'job_job_type_full'
     end
 
-    it 'it saves successfully' do
+    it 'it saves successfully', js: true do
       job_defaults
       click_on 'Create Job'
       expect(page).to have_content job.description

@@ -9,9 +9,9 @@ Tech Job Board for the South Florida Tech Community
 [RSpec: Feature Testing](https://www.relishapp.com/rspec/rspec-rails/v/3-4/docs/feature-specs/feature-spec)
 
 This app is a black magic box and we will treat it as such.
-So only feature testing. Because why bother with anything else if the 
+So only feature testing. Because why bother with anything else if the
 views aren't broken and the users can use the app successfully.
- 
+
 #### Testing Style Guide
 
 [Better RSpecs](http://betterspecs.org/)
@@ -21,8 +21,9 @@ views aren't broken and the users can use the app successfully.
 [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide)
 
 I will try my best to adhere to Ruby Style Guide
-since RubyMine still doesn't have support for Rubocop 
+since RubyMine still doesn't have support for Rubocop
 it can be a hit or miss.
+
 
 ### Contributing
 ---
