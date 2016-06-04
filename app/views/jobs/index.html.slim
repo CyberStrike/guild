@@ -28,7 +28,7 @@ table
         td = job.description
         td = job.remote
         td = job.exp_date
-        td = job.job_type
+        td = job.terms
         td = link_to 'Show', job
         td = link_to 'Edit', edit_job_path(job)
         td = link_to 'Destroy', job, data: {:confirm => 'Are you sure?'}, :method => :delete

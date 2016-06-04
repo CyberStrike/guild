@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160602024043) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "archived",    default: false
-    t.string   "job_type"
+    t.string   "terms"
   end
 
 end

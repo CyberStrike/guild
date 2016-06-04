@@ -25,7 +25,7 @@ RSpec.feature 'Jobs are listed', type: :feature do
     end
 
     it 'a job type' do
-      expect(page).to have_content job.job_type
+      expect(page).to have_content job.terms
     end
   end
 end

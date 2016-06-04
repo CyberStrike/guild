@@ -60,7 +60,11 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   # config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
+  config.filter_gems_from_backtrace('capybara', '')
+  config.backtrace_exclusion_patterns = [/\/lib\d*\/ruby\//,
+                                         /org\/jruby\//,
+                                         /bin\//,
+                                         /lib\/rspec\/(core|expectations|matchers|mocks)/]
 
   # Factory Girl
   config.include FactoryGirl::Syntax::Methods

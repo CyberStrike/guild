@@ -19,12 +19,12 @@
     = f.label :description
     = f.text_area :description
   .field
-    = f.radio_button :job_type, 'full'
-    = f.label :contactmethod, 'Full-time', :value => 'full'
-    = f.radio_button :job_type, 'part'
-    = f.label :contactmethod, 'Part-time', :value => 'part'
-    = f.radio_button :job_type, 'contract'
-    = f.label :contactmethod, 'Contract', :value => 'contract'
+    = f.radio_button :terms, 'full-time'
+    = f.label :terms, 'Full-time', :value => 'full-time'
+    = f.radio_button :terms, 'part-time'
+    = f.label :terms, 'Part-time', :value => 'part-time'
+    = f.radio_button :terms, 'contract'
+    = f.label :terms, 'Contract', :value => 'contract'
   .field
     = f.label :remote
     = f.text_field :remote

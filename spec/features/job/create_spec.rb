@@ -12,13 +12,19 @@ RSpec.feature 'Jobs', type: :feature do
     def job_defaults
       fill_in 'job_title', with: job.title
       fill_in 'job_description', with: job.description
-      choose 'job_job_type_full'
+      choose 'job_terms_' + job.terms
     end
 
-    it 'it saves successfully', js: true do
+    it 'it saves successfully' do
       job_defaults
       click_on 'Create Job'
       expect(page).to have_content job.description
+    end
+
+    it 'user can select a job type'do
+      job_defaults
+      click_on 'Create Job'
+      expect(page).to have_content job.terms
     end
   end
 end
