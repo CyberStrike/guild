@@ -22,7 +22,14 @@
   <% end %>
   <body>
     <div class="container">
-      <h1>The Guild</h1>
+      <%= link_to :root do %>
+        <h1 class="app-title">The Guild</h1>
+      <%end%>
+      <nav style="text-align: center" class="nav nav-inline">
+        <a class="nav-link disabled" href="#">The List</a>
+        <%= link_to 'Events', 'http://cortadito.miami', class: 'nav-link', target: '_blank'%>
+        <a class="nav-link disabled" href="#">About</a>
+      </nav>
       <%= yield %>
     </div>
   </body>
