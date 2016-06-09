@@ -13,10 +13,13 @@
     @include make-col-span(6)
 
 .add-job
-  @include media-breakpoint-up(xs)
-    display: block
-    padding: 0.5em
-    margin: 0.5em
+  display: block
+  padding: 0.5em
+  margin: 0.5em
+  @include media-breakpoint-up(md)
+    display: initial
+    padding: 0
+    margin: 0
 
 .job-card
   padding: 1.25em 0
@@ -29,6 +32,7 @@
 
   a
     color: inherit
+
     &:visited
       .title
         color: $purple

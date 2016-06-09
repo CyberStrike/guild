@@ -5,7 +5,7 @@
       span.add-job = link_to 'Add Job', new_job_path, class:'btn btn-sm btn-primary-outline'
     - @jobs.each do |job|
       .job-card
-        = link_to job do
+        = link_to job_link(job), target: job_target(job)  do
           .job-card-line
             h4.title = job.title
             - if job.remote?
@@ -13,30 +13,3 @@
           .job-card-line
             .location = job.location.titleize
             .terms = job.terms.titleize
-
-/table
-/  thead
-/    tr
-/      th Title
-/      th Link
-/      th Location
-/      th Description
-/      th Remote
-/      th Exp date
-/      th Job Type
-/      th
-/      th
-/
-/  tbody
-/    - @jobs.each do |job|
-/      tr
-/        td = job.title
-/        td = job.link
-/        td = job.location
-/        td = job.description
-/        td = job.remote
-/        td = job.exp_date
-/        td = job.terms
-/        td = link_to 'Show', job
-/        td = link_to 'Edit', edit_job_path(job)
-/        td = link_to 'Destroy', job, data: {:confirm => 'Are you sure?'}, :method => :delete
