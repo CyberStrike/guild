@@ -5,10 +5,13 @@
     - @jobs.each do |job|
       .job-card
         = link_to job do
-          .pull-right = 'Remote' if job.remote?
-          h4.list-group-item-heading = truncate job.title, length: 24
-          .pull-right = job.terms
-          p.list-group-item-text = job.location
+          .job-card-line
+            h4.title = job.title
+            - if job.remote?
+              .remote Remote
+          .job-card-line
+            .location = job.location.titleize
+            .terms = job.terms.titleize
 
 /table
 /  thead

@@ -77,6 +77,7 @@ rules:
         - left
         - z-index
         - display
+          justify-content
         - float
         - width
         - height
