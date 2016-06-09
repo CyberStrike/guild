@@ -1,13 +1,14 @@
 = link_to 'New Job', new_job_path, class:'pull-right'
-.job-card-container
-  p The place for tech jobs in South Florida
-  .list-group
+.row
+  .job-card-container
+    p The place for tech jobs in South Florida
     - @jobs.each do |job|
-      =link_to job, class:'list-group-item' do
-        .pull-right = 'Remote' if job.remote?
-        h4.list-group-item-heading = truncate job.title, length: 24
-        .pull-right = job.terms
-        p.list-group-item-text = job.location
+      .job-card
+        = link_to job do
+          .pull-right = 'Remote' if job.remote?
+          h4.list-group-item-heading = truncate job.title, length: 24
+          .pull-right = job.terms
+          p.list-group-item-text = job.location
 
 /table
 /  thead
@@ -35,4 +36,3 @@
 /        td = link_to 'Show', job
 /        td = link_to 'Edit', edit_job_path(job)
 /        td = link_to 'Destroy', job, data: {:confirm => 'Are you sure?'}, :method => :delete
-
