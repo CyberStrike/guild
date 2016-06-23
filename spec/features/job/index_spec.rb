@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Jobs are listed', type: :feature do
   context 'With expected attributes' do
-    let!(:job) { create(:job) }
+    let!(:job) { create(:job, remote: true) }
 
     before :each do
       visit '/jobs'
@@ -12,20 +12,16 @@ RSpec.feature 'Jobs are listed', type: :feature do
       expect(page).to have_content job.title
     end
 
-    it 'a description' do
-      expect(page).to have_content job.description
-    end
-
     it 'a location' do
-      expect(page).to have_content job.location
+      expect(page).to have_content job.location.titleize
     end
 
     it 'a remote flag' do
-      expect(page).to have_content job.remote
+      expect(page).to have_content 'Remote'
     end
 
     it 'a job type' do
-      expect(page).to have_content job.terms
+      expect(page).to have_content job.terms.titleize
     end
   end
 end

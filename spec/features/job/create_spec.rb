@@ -6,7 +6,7 @@ RSpec.feature 'Jobs', type: :feature do
 
     before :each do
       visit '/jobs'
-      click_on 'New Job'
+      click_on 'Add a Job'
     end
 
     def job_defaults
@@ -21,7 +21,7 @@ RSpec.feature 'Jobs', type: :feature do
       expect(page).to have_content job.description
     end
 
-    it 'user can select a job type'do
+    it 'user can select a job type' do
       job_defaults
       click_on 'Create Job'
       expect(page).to have_content job.terms

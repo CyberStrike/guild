@@ -21,7 +21,7 @@ RSpec.describe Job, :type => :model do
     end
   end
 
-  context 'expired' do
+  context 'Expired' do
     before :each do
       FactoryGirl.create_list(:job, 2)
       FactoryGirl.create_list(:job, 3, :expired)
@@ -34,6 +34,14 @@ RSpec.describe Job, :type => :model do
 
     it 'does not return archived jobs' do
       expect(Job.expired.count).to eq 3
+    end
+  end
+
+  context 'Destroy' do
+    let!(:job) { create :job }
+
+    it 'should destroy the record' do
+      expect { job.destroy! }.to change { Job.count }.by(-1)
     end
   end
 end

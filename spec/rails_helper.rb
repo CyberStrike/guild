@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
 
 require 'spec_helper'
 require 'capybara/rails'
@@ -61,7 +61,7 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   # config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
-  config.filter_gems_from_backtrace('capybara', '')
+  config.filter_gems_from_backtrace('capybara', 'capybara-2.7.1', '')
   config.backtrace_exclusion_patterns = [/\/lib\d*\/ruby\//,
                                          /org\/jruby\//,
                                          /bin\//,
@@ -75,7 +75,6 @@ RSpec.configure do |config|
   # config.append_after(:each) do
   #   Warden.test_reset!
   # end
-
 
   # Database Cleaner
   config.before(:suite) do
@@ -102,7 +101,7 @@ RSpec.configure do |config|
     # with the specs, so continue to use transaction strategy for speed.
     driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
 
-    if !driver_shares_db_connection_with_specs
+    unless driver_shares_db_connection_with_specs
       # Driver is probably for an external browser with an app
       # under test that does *not* share a database connection with the
       # specs, so use truncation strategy.
@@ -117,5 +116,4 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 end

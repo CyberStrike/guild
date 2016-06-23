@@ -5,11 +5,14 @@ RSpec.feature 'Jobs can be edited', type: :feature do
     let!(:job) { create :job }
     let!(:job_mock) { build :job }
 
+    def humanize_bool(boolean)
+      boolean ? 'Yes' : 'No'
+    end
+
     it 'title is saved successfully' do
       visit edit_job_path(job)
       fill_in 'job_title', with: job_mock.title
       click_on 'Update Job'
-
       expect(page).to have_content job_mock.title
     end
 
@@ -17,7 +20,6 @@ RSpec.feature 'Jobs can be edited', type: :feature do
       visit edit_job_path(job)
       fill_in 'job_description', with: job_mock.description
       click_on 'Update Job'
-
       expect(page).to have_content job_mock.description
     end
 
@@ -25,15 +27,13 @@ RSpec.feature 'Jobs can be edited', type: :feature do
       visit edit_job_path(job)
       fill_in 'job_location', with: job_mock.location
       click_on 'Update Job'
-
       expect(page).to have_content job_mock.location
     end
 
     it 'remote is saved successfully' do
       visit edit_job_path(job)
-      fill_in 'job_remote', with: job_mock.remote
+      choose 'job_remote_' + job_mock.remote.to_s, humanize_bool(job_mock.remote)
       click_on 'Update Job'
-
       expect(page).to have_content job_mock.remote
     end
 

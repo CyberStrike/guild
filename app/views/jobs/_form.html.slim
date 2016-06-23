@@ -30,12 +30,11 @@
           | Part-Time
       .c-inputs-stacked
         label.c-input.c-radio
-          = f.radio_button :terms, 'part-time'
+          = f.radio_button :terms, 'contract'
           span.c-indicator
           | Contract
-          = f.radio_button :terms, 'contract'
     fieldset.form-group
-      = f.label :terms, 'Remote?'
+      = f.label :remote, 'Remote?'
       p.small.text-muted 
         = link_to "Office not required.", 'https://37signals.com/remote', target: '_blank'
       label.c-input.c-radio
