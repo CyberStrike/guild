@@ -1,7 +1,7 @@
 .row
   .job-card-container
-    p.callout 
-      | The place for tech jobs in South Florida 
+    p.callout
+      | The place for tech jobs in South Florida.
       span.add-job = link_to 'Add Job', new_job_path, class:'btn btn-sm btn-primary-outline'
     - @jobs.each do |job|
       .job-card
