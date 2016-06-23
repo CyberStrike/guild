@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '>= 5.0.0.rc1'
 
 # Libraries
 ####################
@@ -23,7 +23,7 @@ gem 'slim-rails' # Lose some weight
 
 group :development, :test do
   gem 'sqlite3' # SQLite3 DB
-  gem 'rspec-rails' # Test Helper
+  gem 'rspec-rails', '>= 3.1' # Great Expectations
   gem 'capybara' # Feature Testing
   gem 'factory_girl_rails' # Assembly The Testing Models
   gem 'ffaker' # Random Fake Info
