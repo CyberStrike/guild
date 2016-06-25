@@ -46,13 +46,22 @@
         span.c-indicator
         | No
     fieldset.form-group
-      = f.label 'Link Post To Url'
-      p.small.text-muted
-        | If this job is already listed elsewhere just drop the link here
-        |  and we will link to it instead.
-      = f.text_field :link, class: 'form-control', placeholder: 'http://company.tld/job-posting'
-    fieldset.form-group
       = f.label :description
+      p.small.text-muted
+        | Already listed elsewhere? Just give us the url and we link out to it.
+      /p.small.text-muted
+        /= link_to "Office not required.", 'https://37signals.com/remote', target: '_blank'
+      label.c-input.c-radio
+        = radio_button_tag :description, 'link', :selected
+        span.c-indicator
+        | Link this post to url
+      label.c-input.c-radio
+        = radio_button_tag :description, 'description'
+        span.c-indicator
+        | Write description here
+      
+      = f.text_field :link, class: 'form-control', placeholder: 'http://company.tld/job-posting'
+    fieldset.form-group#description_group
       p.small.text-muted What's the lowdown on this oppertunity yo.
       = f.text_area :description, rows: 3, class: 'form-control'
     fieldset.form-group disabled=true
