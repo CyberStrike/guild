@@ -59,14 +59,14 @@
         = radio_button_tag :description, 'description'
         span.c-indicator
         | Write description here
-      
+    fieldset.form-group#link_group
       = f.text_field :link, class: 'form-control', placeholder: 'http://company.tld/job-posting'
-    fieldset.form-group#description_group
+    fieldset.form-group#description_group style="#{'display: none'}"
       p.small.text-muted What's the lowdown on this oppertunity yo.
       = f.text_area :description, rows: 3, class: 'form-control'
     fieldset.form-group disabled=true
       = f.label :Expiration_Date
       - if @job.new_record?
         p.text-success = (Date.today + 30.days).strftime("%A, %B %d")
-        p.text-muted Automatically Expires in 30 Days, you can extend time within the last 7 days before expiration
+        p.text-muted Automatically Expires in 30 Days, you can extend the expiration within the last 7 days before expiration
     .actions = f.submit

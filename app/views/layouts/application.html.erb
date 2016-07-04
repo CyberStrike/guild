@@ -23,7 +23,7 @@
       </div>
     </div>
   <% end %>
-  <body>
+  <body id=<%= params[:controller] %> class=<%= params[:action] %> >
     <div class="container">
       <%= link_to :root do %>
         <h1 class="app-title">The Guild</h1>
