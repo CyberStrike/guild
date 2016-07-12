@@ -5,8 +5,9 @@ gem 'rails', '>= 5.0.0.rc1'
 
 # Libraries
 ####################
-gem 'sidekiq'
 
+gem 'sidekiq'
+gem 'devise'
 gem 'puma', '~> 3.0' # That's one fast cat
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Timey Wimey Stuff
 
@@ -26,7 +27,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.1' # Great Expectations
   gem 'capybara' # Feature Testing
   gem 'factory_girl_rails' # Assembly The Testing Models
-  gem 'ffaker' # Random Fake Info
+  gem 'faker' # Random Fake Info
   gem 'shoulda-matchers' # Model Testing Help for Rspec
   gem 'selenium-webdriver'
   gem 'database_cleaner'
