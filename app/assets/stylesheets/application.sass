@@ -1,0 +1,30 @@
+@import 'variables', 'bootstrap', 'jobs'
+
+html
+  text-rendering: optimizeLegibility
+
+
+.app-title
+  padding: 0.5em
+  margin: 0.5em
+  color: $purple
+  text-align: center
+
+.nav
+  margin: 0.5em
+
+.callout
+  padding: 0.5em
+  margin: 0.5em
+  text-align: center
+
+
+
+// For The Grid
+.container
+  @include make-container
+
+// Utility
+.turbolinks-progress-bar
+  height: 5px
+  background-color: $purple

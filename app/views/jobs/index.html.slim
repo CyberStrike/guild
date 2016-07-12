@@ -1,0 +1,15 @@
+.row
+  .job-card-container
+    p.callout
+      | The place for tech jobs in South Florida.
+      span.add-job = link_to 'Add a Job', new_job_path, class:'btn btn-sm btn-primary-outline'
+    - @jobs.each do |job|
+      .job-card
+        = link_to job_link(job), target: job_target(job)  do
+          .job-card-line
+            h4.title = job.title
+            - if job.remote?
+              .remote Remote
+          .job-card-line
+            .location = job.location.titleize
+            .terms = job.terms.titleize

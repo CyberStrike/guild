@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '>= 5.0.0.rc1'
 
 # Libraries
 ####################
+
 gem 'devise'
+gem 'sidekiq'
 gem 'puma', '~> 3.0' # That's one fast cat
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Timey Wimey Stuff
 
@@ -16,22 +18,23 @@ gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.1.0' # Caffeineated JS
 gem 'turbolinks', '~> 5.x' # Turbo Charged Page Changes
 gem 'jbuilder', '~> 2.0'
-gem 'bootstrap-sass' # Pull our selves up by our Bootstraps
+gem 'bootstrap', '~> 4.0.0.alpha3' # Pull our selves up by our Bootstraps
 gem 'jquery-rails' # Javascript Query Library
 gem 'slim-rails' # Lose some weight
 
 group :development, :test do
   gem 'sqlite3' # SQLite3 DB
-  gem 'rspec-rails' # Test Helper
+  gem 'rspec-rails', '>= 3.1' # Great Expectations
   gem 'capybara' # Feature Testing
   gem 'factory_girl_rails' # Assembly The Testing Models
-  gem 'faker' # Random Fake Info
+  gem 'ffaker' # Random Fake Info
   gem 'shoulda-matchers' # Model Testing Help for Rspec
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'pry-byebug', platform: :mri # Break in console
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'rubocop'
 end
 
 group :development do

@@ -2,13 +2,38 @@
 <html>
   <head>
     <title>Guild</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Chrome Theme Color -->
+    <meta name="theme-color" content="#663399">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <% unless flash.empty? %>
+    <div class="text-center">
+      <div class="notice text-info">
+        <%= notice %>
+      </div>
+      <div class="alert text-danger">
+        <%= alert %>
+      </div>
+    </div>
+  <% end %>
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to :root do %>
+        <h1 class="app-title">The Guild</h1>
+      <%end%>
+      <nav style="text-align: center" class="nav nav-inline">
+        <a class="nav-link disabled" href="#">The List</a>
+        <%= link_to 'Events', 'http://cortadito.miami', class: 'nav-link', target: '_blank'%>
+        <a class="nav-link disabled" href="#">About</a>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
