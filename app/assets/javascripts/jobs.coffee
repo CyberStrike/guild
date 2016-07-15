@@ -3,9 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
+
 $(document).on 'turbolinks:load', ->
-  job_form = $('#jobs.new, #jobs.edit')
-  descriptionToggle() if job_form[0]?
+  window.jobsFormPage = $('#jobs.new, #jobs.edit')[0]?
+  if window.jobsFormPage
+    console.log('Binding Listeners')
+    descriptionToggle() if window.jobsFormPage
+
+
 
 descriptionToggle = ->
   $linkGroup = $('#link_group')
@@ -24,5 +29,7 @@ descriptionToggle = ->
         $linkGroup.fadeIn()
 
   $(document).on 'turbolinks:request-start', ->
+    console.log('Unbinding Listeners')
     $descriptionRadio.off 'change'
     $linkRadio.off 'change'
+    $(document).off 'turbolinks:request-start', ->
