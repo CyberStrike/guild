@@ -5,7 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'spec_helper'
 require 'capybara/rails'
 require 'rspec/rails'
-# require 'devise'
+require 'devise'
 require 'database_cleaner'
 require 'pry-byebug'
 require 'awesome_print'
