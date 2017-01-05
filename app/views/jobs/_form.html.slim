@@ -35,7 +35,7 @@
           | Contract
     fieldset.form-group
       = f.label :remote, 'Remote?'
-      p.small.text-muted 
+      p.small.text-muted
         = link_to "Office not required.", 'https://37signals.com/remote', target: '_blank'
       label.c-input.c-radio
         = f.radio_button :remote, true
@@ -67,6 +67,9 @@
     fieldset.form-group disabled=true
       = f.label :Expiration_Date
       - if @job.new_record?
-        p.text-success = (Date.today + 30.days).strftime("%A, %B %d")
+        p.text-success = (Date.today + 30.days)
         p.text-muted Automatically Expires in 30 Days, you can extend the expiration within the last 7 days before expiration
-    .actions = f.submit
+      - else
+          p.text-success = @job.exp_date.strftime("%A, %B %d")
+
+    .actions = f.submit class: 'btn btn-lg btn-block btn-primary'

@@ -1,7 +1,7 @@
 class JobArchiverJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(*_args)
     archive_jobs
   end
 

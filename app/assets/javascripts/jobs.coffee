@@ -2,15 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-
 $(document).on 'turbolinks:load', ->
   window.jobsFormPage = $('#jobs.new, #jobs.edit')[0]?
   if window.jobsFormPage
     console.log('Binding Listeners')
-    descriptionToggle() if window.jobsFormPage
-
-
+    descriptionToggle()
 
 descriptionToggle = ->
   $linkGroup = $('#link_group')

@@ -32,8 +32,10 @@
         <a class="nav-link disabled" href="#">The List</a>
         <%= link_to 'Events', 'http://cortadito.miami', class: 'nav-link', target: '_blank'%>
         <a class="nav-link disabled" href="#">About</a>
+        <%= link_to 'Logout', destroy_user_session_path, class: 'nav-link' %>
       </nav>
       <%= yield %>
     </div>
+
   </body>
 </html>
