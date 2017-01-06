@@ -26,6 +26,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
+    binding.pry
     @job = Job.new(job_params)
     @job.exp_date = Date.today + 30.days
 
@@ -65,13 +66,14 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:title, :link, :location, :description, :remote, :terms)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:title, :link, :location, :description, :remote, :terms)
+  end
 end

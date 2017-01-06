@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require turbolinks
 // require ./bootstrap/util
 // require ./bootstrap/alert
 // require ./bootstrap/button
@@ -22,6 +24,5 @@
 // require ./bootstrap/tab
 // require ./bootstrap/tooltip
 // require ./bootstrap/popover
-//= require jquery_ujs
-//= require turbolinks
+//= require simplemde.min
 //= require_tree .
