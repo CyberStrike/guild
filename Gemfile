@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap', '~> 4.0.0.alpha3' # Pull our selves up by our Bootstraps
 gem 'jquery-rails' # Javascript Query Library
 gem 'slim-rails' # Lose some weight
+gem 'redcarpet' # Laying it down for the Markdown
 
 group :development, :test do
   gem 'sqlite3' # SQLite3 DB

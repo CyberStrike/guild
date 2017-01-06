@@ -7,8 +7,7 @@ p
   strong Location:
   = @job.location
 p
-  strong Description:
-  = @job.description
+  = markdown @job.description
 p
   strong Remote:
   = @job.remote
@@ -20,5 +19,3 @@ p
   = @job.exp_date
 
 = link_to 'Edit', edit_job_path(@job)
-'|
-= link_to 'Back', jobs_path
