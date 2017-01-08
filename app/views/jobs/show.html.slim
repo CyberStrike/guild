@@ -1,21 +1,17 @@
-p#notice = notice
+
+markdown:
+  # #{@job.title}
+
+  #{@job.terms.titlecase} at **Company Name**
+
+  *#{@job.location}* #{ "(Remote)" if @job.remote }
+
+  *Created #{pluralize((@job.created_at.to_date..Date.today).count, 'day') + ' ago.'}*
+
+hr
 
 p
-  strong Title:
-  = @job.title
-p
-  strong Location:
-  = @job.location
-p
   = markdown @job.description
-p
-  strong Remote:
-  = @job.remote
-p
-  strong Job Terms:
-  = @job.terms
-p
-  strong Exp date:
-  = @job.exp_date
+
 
 = link_to 'Edit', edit_job_path(@job)
