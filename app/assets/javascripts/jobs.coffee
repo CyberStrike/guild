@@ -5,9 +5,7 @@
 $(document).on 'turbolinks:load', ->
   window.jobsFormPage = $('#jobs.new, #jobs.edit')[0]?
   if window.jobsFormPage
-
     descriptionToggle()
-
     editor = new SimpleMDE
       element: document.getElementById('job_description')
       indentWithTabs: false

@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.1.0' # Caffeineated JS
 gem 'turbolinks', '~> 5.x' # Turbo Charged Page Changes
 gem 'jbuilder', '~> 2.0'
-gem 'bootstrap', '~> 4.0.0.alpha3' # Pull our selves up by our Bootstraps
+gem 'bootstrap', '~> 4.0.0.alpha6' # Pull our selves up by our Bootstraps
 gem 'jquery-rails' # Javascript Query Library
 gem 'slim-rails' # Lose some weight
 gem 'redcarpet' # Laying it down for the Markdown

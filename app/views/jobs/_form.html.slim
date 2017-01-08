@@ -8,11 +8,13 @@
 
   fieldset
     fieldset.form-group
-      = f.label :title
+      h4
+        = f.label :title
       p.small.text-muted What is the title for the position?
       = f.text_field :title, class: 'form-control', placeholder: 'Job Title'
     fieldset.form-group
-      = f.label :location
+      h4
+        = f.label :location
       p.small.text-muted Where is the company and/or job site located?
       = f.text_field :location, class: 'form-control', placeholder: 'Wynwood, Fl'
     fieldset.form-group
@@ -46,7 +48,8 @@
         span.c-indicator
         | No
     fieldset.form-group
-      = f.label :description
+      h4
+        = f.label :description
       p.small.text-muted
         | Already listed elsewhere? Just give us the url and we link out to it.
       /p.small.text-muted
