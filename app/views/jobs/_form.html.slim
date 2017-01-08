@@ -7,71 +7,76 @@
           li = message
 
   fieldset
+    // Title
     fieldset.form-group
-      h4
-        = f.label :title
+      h4 = f.label :title
       p.small.text-muted What is the title for the position?
       = f.text_field :title, class: 'form-control', placeholder: 'Job Title'
+    // Location
     fieldset.form-group
-      h4
-        = f.label :location
+      h4 = f.label :location
       p.small.text-muted Where is the company and/or job site located?
       = f.text_field :location, class: 'form-control', placeholder: 'Wynwood, Fl'
+    // Terms
     fieldset.form-group
-      = f.label :terms, 'Terms Of Employment'
+      h4 = f.label :terms, 'Terms Of Employment'
       p.small.text-muted What are the terms of Employment?
-      .c-inputs-stacked
-        label.c-input.c-radio
-          = f.radio_button :terms, 'full-time'
-          span.c-indicator
-          | Full-Time
-      .c-inputs-stacked
-        label.c-input.c-radio
-          = f.radio_button :terms, 'part-time'
-          span.c-indicator
-          | Part-Time
-      .c-inputs-stacked
-        label.c-input.c-radio
-          = f.radio_button :terms, 'contract'
-          span.c-indicator
-          | Contract
+      .custom-controls-stacked
+        label.custom-control.custom-radio
+          = radio_button_tag :terms, 'full-time', :selected, class: 'custom-control-input'
+          span.custom-control-indicator
+          span.custom-control-description Full-Time
+        label.custom-control.custom-radio
+          = radio_button_tag :terms, 'part-time', false, class: 'custom-control-input'
+          span.custom-control-indicator
+          span.custom-control-description Part-Time
+        label.custom-control.custom-radio
+          = radio_button_tag :terms, 'contract', false, class: 'custom-control-input'
+          span.custom-control-indicator
+          span.custom-control-description Contract
+
+    // Remote
     fieldset.form-group
-      = f.label :remote, 'Remote?'
+      h4
+        = f.label :remote, 'Remote?'
       p.small.text-muted
         = link_to "Office not required.", 'https://37signals.com/remote', target: '_blank'
-      label.c-input.c-radio
-        = f.radio_button :remote, true
-        span.c-indicator
-        | Yes
-      label.c-input.c-radio
-        = f.radio_button :remote, false
-        span.c-indicator
-        | No
+      label.custom-control.custom-radio
+        = radio_button_tag :remote, true, :selected, class: 'custom-control-input'
+        span.custom-control-indicator
+        span.custom-control-description Yes
+      label.custom-control.custom-radio
+        = radio_button_tag :remote, false, false, class: 'custom-control-input'
+        span.custom-control-indicator
+        span.custom-control-description No
+    // Description
     fieldset.form-group
       h4
         = f.label :description
       p.small.text-muted
-        | Already listed elsewhere? Just give us the url and we link out to it.
-      /p.small.text-muted
-        /= link_to "Office not required.", 'https://37signals.com/remote', target: '_blank'
-      label.c-input.c-radio
-        = radio_button_tag :description, 'link', :selected
-        span.c-indicator
-        | Link this post to url
-      label.c-input.c-radio
-        = radio_button_tag :description, 'description'
-        span.c-indicator
-        | Write description here
+        | Already listed elsewhere? Just give us the url and we'll link out to it.
+      label.custom-control.custom-radio
+        = radio_button_tag :description, 'link', :selected, class: 'custom-control-input'
+        span.custom-control-indicator
+        span.custom-control-description Link directly to a url
+      label.custom-control.custom-radio
+        = radio_button_tag :description, 'description', false, class: 'custom-control-input'
+        span.custom-control-indicator
+        span.custom-control-description
+          | Write description here
     fieldset.form-group#link_group
       = f.text_field :link, class: 'form-control', placeholder: 'http://company.tld/job-posting'
     fieldset.form-group#description_group style="#{'display: none'}"
-      p.small.text-muted What's the lowdown on this oppertunity yo.
+      p.small.text-muted
+        | What's the lowdown on this opportunity.
+        s Example Job Post
       = f.text_area :description, rows: 3, class: 'form-control'
+    // Expiration
     fieldset.form-group disabled=true
-      = f.label :Expiration_Date
+      h4 = f.label :Expiration_Date
       - if @job.new_record?
         p.text-success = (Date.today + 30.days)
-        p.text-muted Automatically Expires in 30 Days, you can extend the expiration within the last 7 days before expiration
+        p.text-muted Automatically Expires in 30 Days, you can extend the expiration within the last 7 days before expiration.
       - else
           p.text-success = @job.exp_date.strftime("%A, %B %d")
 
