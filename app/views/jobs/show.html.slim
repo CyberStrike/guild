@@ -1,17 +1,18 @@
+.job
+  .job-head
+    .card.text-center.card-inverse style="background-color: rebeccapurple; border-color: #333;"
+      .card-block
+        .card-title
+          h1 = @job.title
+        .card-text
+          markdown:
+              #{@job.terms.titlecase} at **Company Name**
 
-markdown:
-  # #{@job.title}
-
-  #{@job.terms.titlecase} at **Company Name**
-
-  *#{@job.location}* #{ "(Remote)" if @job.remote }
-
-  *Created #{pluralize((@job.created_at.to_date..Date.today).count, 'day') + ' ago.'}*
-
-hr
-
-p
-  = markdown @job.description
+            *#{@job.location}* #{ "(Remote)" if @job.remote }
+          small Created #{pluralize((@job.created_at.to_date..Date.today).count, 'day') + ' ago.'}
+  .job-body
+    .test-block
+    = markdown @job.description
 
 
 = link_to 'Edit', edit_job_path(@job)
