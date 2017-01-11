@@ -21,6 +21,25 @@
 .container
   @include make-container
 
+.footer
+  padding: 4rem 0
+  margin-top: 4rem
+  font-size: 85%
+  text-align: center
+  background-color: $purple
+  .app-title
+    color: $white
+  .nav-link
+    display: block
+    padding: $nav-link-padding
+    @include hover-focus
+      text-decoration: none
+    // Disabled state lightens text and removes hover/tab effects
+    &.disabled
+      color: $nav-disabled-link-color
+      cursor: $cursor-disabled
+
+
 // Utility
 .turbolinks-progress-bar
   height: 5px

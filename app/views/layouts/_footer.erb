@@ -1,0 +1,18 @@
+<footer class="footer">
+  <div class="container" style="color: white">
+    <nav class="nav justify-content-center navbar-inverse">
+      <a class="nav-link disabled" href="#">The List</a>
+      <%= link_to 'Events', 'http://cortadito.miami', class: 'nav-link', target: '_blank'%>
+      <a class="nav-link disabled" href="#">About</a>
+      <% if current_user %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_session_path, class: 'nav-link' %>
+      <% end  %>
+    </nav>
+    <%= link_to :root do %>
+      <h1 class="app-title">The Guild</h1>
+    <%end%>
+    &COPY; <%= Date.today.year %>
+  </div>
+</footer>

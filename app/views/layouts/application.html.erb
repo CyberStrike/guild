@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Guild</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Chrome Theme Color -->
     <meta name="theme-color" content="#663399">
 
@@ -13,35 +15,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script src=""></script>
   </head>
   <body id=<%= params[:controller] %> class=<%= params[:action] %> >
-    <div class="container">
-      <%= link_to :root do %>
-        <h1 class="app-title">The Guild</h1>
-      <%end%>
-      <% unless flash.empty? %>
-        <div class="text-center">
-          <div class="notice text-info">
-            <%= notice %>
-          </div>
-          <div class="alert text-danger">
-            <%= alert %>
-          </div>
-        </div>
-      <% end %>
-      <nav class="nav justify-content-center">
-        <a class="nav-link disabled" href="#">The List</a>
-        <%= link_to 'Events', 'http://cortadito.miami', class: 'nav-link', target: '_blank'%>
-        <a class="nav-link disabled" href="#">About</a>
-        <% if current_user %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-        <% else %>
-          <%= link_to 'Sign Up', new_user_session_path, class: 'nav-link' %>
-        <% end  %>
-      </nav>
-      <%= yield %>
-    </div>
+
+    <%= render 'layouts/nav' %>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
