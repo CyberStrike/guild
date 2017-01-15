@@ -1,0 +1,22 @@
+.row.justify-content-center.align-items-center
+  .job-card-container
+    p.callout
+      | This is your dashboard. Find all your posted jobs here.
+      nav.nav.justify-content-center
+        li.nav-link
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-danger'
+        li.nav-link
+          = link_to 'Edit Login', edit_user_registration_path, class: 'btn btn-sm btn-outline-primary'
+        li.nav-link
+          = link_to 'Add a Job', new_job_path, class: 'btn btn-sm btn-outline-success'
+
+    - @jobs.each do |job|
+      .job-card
+        = link_to job_link(job), target: job_target(job)  do
+          .job-card-line
+            h4.title = job.title
+            - if job.remote?
+              .remote Remote
+          .job-card-line
+            .location = job.location.titleize
+            .terms = job.terms.titleize

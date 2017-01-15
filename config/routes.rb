@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard' => 'pages#dashboard'
+
   root 'jobs#index'
   resources :jobs
 
