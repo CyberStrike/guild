@@ -21,13 +21,16 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    respond_to do |format|
+      format.html { render :edit } if current_user == @job.user
+      format.html { redirect_to @job, alert: 'Access Denied.' }
+    end
   end
 
   # POST /jobs
   # POST /jobs.json
   def create
-    binding.pry
-    @job = Job.new(job_params)
+    @job = Job.new(job_params.merge(user: current_user))
     @job.exp_date = Date.today + 30.days
 
     respond_to do |format|
@@ -45,7 +48,10 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
-      if @job.update(job_params)
+      if current_user != @job.user
+        format.html { redirect_to @job, alert: 'Access Denied.' }
+        format.json { render json: nil, status: :unauthorized, location: @job }
+      elsif current_user == @job.user && @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
