@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'rails', '>= 5.0.0.rc1'
+gem 'rails', '5.0.1'
 
 # Libraries
 ####################
 
 gem 'sidekiq'
 gem 'devise'
-gem 'puma', '~> 3.0' # That's one fast cat
+gem 'puma' # That's one fast cat
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Timey Wimey Stuff
 
 ## View Libraries
 ####################
-gem 'sass-rails', '~> 5.0' # Sassy CSS
-gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
-gem 'coffee-rails', '~> 4.1.0' # Caffeineated JS
-gem 'turbolinks', '~> 5.x' # Turbo Charged Page Changes
-gem 'jbuilder', '~> 2.0'
+gem 'sass-rails' # Sassy CSS
+gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails' # Caffeineated JS
+gem 'turbolinks'  # Turbo Charged Page Changes
+gem 'jbuilder'
 gem 'bootstrap', '~> 4.0.0.alpha6' # Pull our selves up by our Bootstraps
 gem 'jquery-rails' # Javascript Query Library
 gem 'slim-rails' # Lose some weight
@@ -25,7 +25,7 @@ gem 'redcarpet' # Laying it down for the Markdown
 
 group :development, :test do
   gem 'sqlite3' # SQLite3 DB
-  gem 'rspec-rails', '>= 3.1' # Great Expectations
+  gem 'rspec-rails' # Great Expectations
   gem 'capybara' # Feature Testing
   gem 'factory_girl_rails' # Assembly The Testing Models
   gem 'faker' # Random Fake Info
@@ -39,12 +39,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring' # Make The App Springy
-  gem 'spring-watcher-listen', '~> 2.0.0' # Watch The Springy App
+  gem 'spring-watcher-listen' # Watch The Springy App
   gem 'better_errors' # Better Errors
   gem 'binding_of_caller' # Better Debugging
-  gem 'quiet_assets' # Shhh.. we don't need to see the assets
+  # gem 'quiet_assets' # Shhh.. we don't need to see the assets
 end
 
 group :production do
