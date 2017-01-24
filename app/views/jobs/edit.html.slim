@@ -1,8 +1,13 @@
-h1 Editing job
+nav.nav.justify-content-center
 
-== render 'form'
+  li.nav-link.
+    = link_to 'Archive', jobs_path, class: 'btn btn-outline-warning disabled'
+  li.nav-link
+    = link_to 'Delete', job_path(@job), method: :delete, class: 'btn btn-outline-danger'
+  li.nav-link
+    = link_to 'View Listing', @job, class: 'btn btn-outline-primary'
 
-= link_to 'Show', @job
-'|
-= link_to 'Back', jobs_path
+hr
 
+.row.justify-content-center.align-items-center
+  == render 'form'

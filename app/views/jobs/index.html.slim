@@ -1,8 +1,12 @@
 .row.justify-content-center.align-items-center
   .job-card-container
-    p.callout
-      | The place for tech jobs in South Florida.
-      span.add-job = link_to 'Add a Job', new_job_path, class:'btn btn-sm btn-outline-primary'
+    p.callout The place for tech jobs in South Florida.
+
+    .job-card.card-primary
+      p.callout Post a Job listing it's free and only take a few minutes.
+      nav.nav.justify-content-center
+        = link_to 'Add a Job', new_job_path, class:'btn btn-outline-primary'
+
     - @jobs.each do |job|
       .job-card
         = link_to job_link(job), target: job_target(job)  do

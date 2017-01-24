@@ -72,14 +72,18 @@
         s Example Job Post
       = f.text_area :description, rows: 3, class: 'form-control'
     // Expiration
-    fieldset.form-group disabled=true
-      h4 = f.label :Expiration_Date
-      - if @job.new_record?
-        p.text-success = (Date.today + 30.days)
-        p.text-muted
-          | Automatically Expires in 30 Days, starting tomorrow,
-          | you can extend the expiration within the last 7 days before expiration.
-      - else
-        p.text-success = @job.exp_date.strftime('%A, %B %d')
+    hr
+    fieldset.form-group.text-center
+      .card.card-outline-primary.mb-3.text-center
+        .card-block
+          h4.card-title Expiration Date
+          - if @job.new_record?
+            p.text-muted
+              | Expires 30 Days from tomorrow.
+            h3.text-success = (Date.today + 30.days).strftime('%A, %B %d')
+          - else
+            h3.text-success = @job.exp_date.strftime('%A, %B %d')
+
+
 
     .actions = f.submit class: 'btn btn-lg btn-block btn-primary'

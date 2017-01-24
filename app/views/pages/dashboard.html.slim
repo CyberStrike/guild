@@ -12,7 +12,7 @@
 
     - @jobs.each do |job|
       .job-card
-        = link_to job_link(job), target: job_target(job)  do
+        = link_to edit_job_path(job)  do
           .job-card-line
             h4.title = job.title
             - if job.remote?
@@ -20,3 +20,10 @@
           .job-card-line
             .location = job.location.titleize
             .terms = job.terms.titleize
+
+    - if @jobs.empty?
+      .card.card-inverse.text-center.card-primary
+        .card-block
+          h3.card-title You have no Jobs Posted.
+          p.card-text Post a Job listing it's free and only take a few minutes.
+          = link_to 'Add a Job', new_job_path, class: 'btn btn-success'
