@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'pages#dashboard'
 
-  resources :jobs
+  resources :jobs do
+    collection do
+      get :example
+    end
+  end
 
-  devise_for :users
+  devise_for :user
 end

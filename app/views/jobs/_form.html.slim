@@ -4,9 +4,14 @@
       h2 = "#{pluralize(@job.errors.count, 'error')} prohibited this job from being saved:"
       ul
         - @job.errors.full_messages.each do |message|
-          li = message
+          li.text-danger = message
 
   fieldset
+    // Company Name
+    fieldset.form-group
+      h4 = f.label :company_name
+      p.small.text-muted What is the name of the hiring company?
+      = f.text_field :company_name, class: 'form-control', placeholder: 'Company Name'
     // Title
     fieldset.form-group
       h4 = f.label :title
@@ -23,15 +28,15 @@
       p.small.text-muted What are the terms of Employment?
       .custom-controls-stacked
         label.custom-control.custom-radio
-          = radio_button_tag :terms, 'full-time', :selected, class: 'custom-control-input'
+          = f.radio_button :terms, 'full-time', {checked: true, class: 'custom-control-input'}
           span.custom-control-indicator
           span.custom-control-description Full-Time
         label.custom-control.custom-radio
-          = radio_button_tag :terms, 'part-time', false, class: 'custom-control-input'
+          = f.radio_button :terms, 'part-time', class: 'custom-control-input'
           span.custom-control-indicator
           span.custom-control-description Part-Time
         label.custom-control.custom-radio
-          = radio_button_tag :terms, 'contract', false, class: 'custom-control-input'
+          = f.radio_button :terms, 'contract', class: 'custom-control-input'
           span.custom-control-indicator
           span.custom-control-description Contract
 
@@ -42,17 +47,17 @@
       p.small.text-muted
         = link_to 'Office not required.', 'https://37signals.com/remote', target: '_blank'
       label.custom-control.custom-radio
-        = radio_button_tag :remote, true, :selected, class: 'custom-control-input'
+        = f.radio_button :remote, 'tasdfaf', {checked: true, class: 'custom-control-input'}
         span.custom-control-indicator
         span.custom-control-description Yes
       label.custom-control.custom-radio
-        = radio_button_tag :remote, false, false, class: 'custom-control-input'
+        = f.radio_button :remote, false, class: 'custom-control-input'
         span.custom-control-indicator
         span.custom-control-description No
     // Description
     fieldset.form-group
       h4
-        = f.label :description
+        = f.label :Listing
       p.small.text-muted
         | Already listed elsewhere? Just give us the url and we'll link out to it.
       label.custom-control.custom-radio

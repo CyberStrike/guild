@@ -9,9 +9,9 @@
           h1 = @job.title
         .card-text
           markdown:
-              #{@job.terms.titlecase} at **Company Name**
-
+              #{@job.terms.titlecase} at **#{@job.company_name}**
             *#{@job.location}* #{ "(Remote)" if @job.remote }
+            
           small Posted #{pluralize((@job.created_at.to_date..Date.today).count, 'day') + ' ago'}
   .job-body
     = markdown @job.description
