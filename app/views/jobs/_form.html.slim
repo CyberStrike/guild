@@ -74,7 +74,8 @@
     fieldset.form-group#description_group style="#{'display: none'}"
       p.small.text-muted
         | What's the lowdown on this opportunity.
-        s Example Job Post
+
+        = link_to ' Example Job Post', example_jobs_path
       = f.text_area :description, rows: 3, class: 'form-control'
     // Expiration
     hr

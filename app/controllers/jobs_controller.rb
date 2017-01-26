@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.where(archived: false)
   end
 
   # GET /jobs/1
@@ -13,6 +13,10 @@ class JobsController < ApplicationController
   def show
   end
 
+  def example
+    @job = Job.find 1337
+    render :show
+  end
   # GET /jobs/new
   def new
     @job = Job.new
@@ -66,8 +70,16 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user != @job.user
+        format.html { redirect_to @job, alert: 'Access Denied.' }
+        format.json { render json: nil, status: :unauthorized, location: @job }
+      elsif current_user == @job.user && @job.destroy!
+        format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { render :index }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
+      end
     end
   end
 
