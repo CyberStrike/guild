@@ -1,8 +1,8 @@
-
-
+// Send Job View to GA
 coffee:
   $(document).on 'turbolinks:load', ->
     ga('send', 'pageview', location.pathname)
+
 - if params[:mailto]
   meta http-equiv="refresh" content="0; url=mailto:#{params[:mailto]}"
 
