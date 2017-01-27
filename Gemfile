@@ -51,6 +51,7 @@ group :production do
   gem 'pg' # Postgresql DB
   # Use Redis adapter to run Action Cable in production
   # gem 'redis', '~> 3.0'
+  gem 'sendgrid-ruby'
   gem 'rails_12factor' # Heroku asset handler
   gem 'heroku-deflater' # Enable GZip on heroku
 end

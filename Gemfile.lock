@@ -208,6 +208,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
+    ruby_http_client (3.0.1)
     rubyzip (1.2.0)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -220,6 +221,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sendgrid-ruby (4.0.7)
+      ruby_http_client (~> 3.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     sidekiq (4.2.9)
@@ -298,6 +301,7 @@ DEPENDENCIES
   rubocop
   sass-rails
   selenium-webdriver
+  sendgrid-ruby
   shoulda-matchers
   sidekiq
   slim-rails
