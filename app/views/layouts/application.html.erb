@@ -20,7 +20,8 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'async': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <%= render 'google_analytics' %>
 
   </head>
   <body id=<%= params[:controller] %> class=<%= params[:action] %> >
