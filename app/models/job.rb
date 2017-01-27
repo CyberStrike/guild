@@ -15,15 +15,12 @@ class Job < ApplicationRecord
 
   scope :expired, -> { where("exp_date <= ? AND archived = 'f'", Date.today) }
 
-  ## Either Description or Link
-
-  def must_have_description_or_link
-    unless description.present? || link.present?
-      errors.add(:Listing, 'We need at least one listing type.')
-    end
-  end
-
   def archive!
     update(archived: true)
+  end
+
+  def must_have_description_or_link
+    no_description = description.empty? || link.empty?
+    return errors.add(:Listing, 'We need at least one listing type.') if no_description
   end
 end
