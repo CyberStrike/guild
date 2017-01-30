@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Guild</title>
+    <title>
+      <% if content_for? :title  %>
+        Guild - <%= yield :title %>
+      <% else %>
+        Guild
+      <% end %>
+    </title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Chris Scott">
+    <meta name="description" content="A simple app to keep track of South Florida's Tech Jobs">
 
     <meta name="google-site-verification" content="MantXgiQwyBKvYs_iY36XN_fNbMEtEXEhtwEf-Llhn0" />
 
