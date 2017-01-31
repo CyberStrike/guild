@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :set_user
 
   def dashboard
-    @jobs = @user.jobs
+    @jobs = @user.jobs.order('created_at DESC')
   end
 
   private

@@ -26,7 +26,7 @@ Metrics/AbcSize:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 50
+  Max: 100
 
 Style/ClassAndModuleChildren:
   Enabled: false

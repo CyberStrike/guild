@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :company_name, :title, :remote, :terms
+  validates_presence_of :company_name, :title, :terms
 
   validates_inclusion_of :terms,
                          in: %w(full-time part-time contract),
@@ -20,7 +20,7 @@ class Job < ApplicationRecord
   end
 
   def must_have_description_or_link
-    no_description = description.empty? || link.empty?
-    return errors.add(:Listing, 'We need at least one listing type.') if no_description
+    no_listing_value = description.blank? && link.blank?
+    return errors.add(:Listing, 'We need at least one listing type.') if no_listing_value
   end
 end

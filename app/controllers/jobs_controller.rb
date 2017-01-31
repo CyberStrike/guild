@@ -5,12 +5,14 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.where(archived: false)
+    @jobs = Job.where(archived: false).order('created_at DESC')
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
-  def show; end
+  def show
+    redirect_to @job.link if @job.link.present?
+  end
 
   def example
     @job = Job.find 1337

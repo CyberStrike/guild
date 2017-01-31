@@ -2,21 +2,26 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'turbolinks:load', ->
-  window.jobsFormPage = $('#jobs.new, #jobs.edit')[0]?
+$(document).on 'turbolinks:render turbolinks:visit', ->
+  console.log 'hello'
+
+$(document).on 'turbolinks:load ', ->
+  window.jobsFormPage = $('#jobs.new, #jobs.edit, #jobs.create')[0]?
   if window.jobsFormPage
     descriptionToggle()
-    editor = new SimpleMDE
-      element: document.getElementById('job_description')
-      indentWithTabs: false
-      forceSync: true
+    unless $('.cm-s-paper')[0]
+      editor = new SimpleMDE
+        element: document.getElementById('job_description')
+        indentWithTabs: false
+        forceSync: true
+        autofocus: true
 
 
 descriptionToggle = ->
-  $linkGroup = $('#link_group')
-  $linkRadio = $('#description_link')
-  $descriptionGroup = $('#description_group')
-  $descriptionRadio = $('#description_description')
+  $linkGroup = $('body #link_group')
+  $linkRadio = $('body #description_link')
+  $descriptionGroup = $('body #description_group')
+  $descriptionRadio = $('body #description_description')
 
   $descriptionRadio.on 'change', (e) ->
     if this.checked
