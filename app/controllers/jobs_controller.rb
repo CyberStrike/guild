@@ -10,13 +10,13 @@ class JobsController < ApplicationController
 
   # GET /jobs/1
   # GET /jobs/1.json
-  def show
-  end
+  def show; end
 
   def example
     @job = Job.find 1337
     render :show
   end
+
   # GET /jobs/new
   def new
     @job = Job.new
@@ -27,7 +27,7 @@ class JobsController < ApplicationController
   def edit
     respond_to do |format|
       format.html { render :edit } if current_user == @job.user
-      format.html { redirect_to @job, alert: 'Access Denied.' }
+      format.html { redirect_to @job, alert: 'Access Denied' }
     end
   end
 
@@ -53,10 +53,10 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if current_user != @job.user
-        format.html { redirect_to @job, alert: 'Access Denied.' }
+        format.html { redirect_to @job, alert: 'Access Denied' }
         format.json { render json: nil, status: :unauthorized, location: @job }
       elsif current_user == @job.user && @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to @job, notice: 'Job was successfully updated' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -71,10 +71,10 @@ class JobsController < ApplicationController
     @job.destroy
     respond_to do |format|
       if current_user != @job.user
-        format.html { redirect_to @job, alert: 'Access Denied.' }
+        format.html { redirect_to @job, alert: 'Access Denied' }
         format.json { render json: nil, status: :unauthorized, location: @job }
       elsif current_user == @job.user && @job.destroy!
-        format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+        format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed' }
         format.json { head :no_content }
       else
         format.html { render :index }
